@@ -3,13 +3,7 @@ class ArticlesController < ApplicationController
 	http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
 
 	def index
-		# @articles = Article.all
-		@authors = Article.all
-		respond_to do |format|
-			format.html {render :index}
-			format.json {render :index, status: :ok}
-			format.xml {render xml: @authors.as_json}
-		end
+		@articles = Article.all
 	end
 
 	def show
